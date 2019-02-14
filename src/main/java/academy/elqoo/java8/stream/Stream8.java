@@ -7,6 +7,7 @@ import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -33,7 +34,10 @@ public class Stream8 {
     }
 
     public static List<String> mapToUpperCase(List<String> strings){
-        throw new NotImplementedException();
+        return strings
+                .stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
     }
 
     public static Integer sum(List<Integer> integers){
