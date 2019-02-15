@@ -14,7 +14,12 @@ import java.util.stream.Stream;
 public class Stream8 {
 
     public static List<Integer> returnSquareRoot(List<Integer> numbers){
-        throw new NotImplementedException();
+        return numbers
+                .stream()
+                //.mapToDouble(i -> i)
+                .map(i -> Math.sqrt(i.doubleValue()))
+                .map(d -> d.intValue())
+                .collect(Collectors.toList());
     }
 
     public static List<Integer> getAgeFromUsers(List<User> user){
