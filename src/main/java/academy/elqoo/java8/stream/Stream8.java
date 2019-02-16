@@ -16,14 +16,16 @@ public class Stream8 {
     public static List<Integer> returnSquareRoot(List<Integer> numbers){
         return numbers
                 .stream()
-                //.mapToDouble(i -> i)
                 .map(i -> Math.sqrt(i.doubleValue()))
                 .map(d -> d.intValue())
                 .collect(Collectors.toList());
     }
 
     public static List<Integer> getAgeFromUsers(List<User> user){
-        throw new NotImplementedException();
+        return user
+                .stream()
+                .map(i -> i.getAge())
+                .collect(Collectors.toList());
     }
 
     public static List<Integer> getDistinctAges(List<User> users){
