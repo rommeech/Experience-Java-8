@@ -29,15 +29,27 @@ public class Stream8 {
     }
 
     public static List<Integer> getDistinctAges(List<User> users){
-        throw new NotImplementedException();
+        return users
+                .stream()
+                .map(user -> user.getAge())
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     public static List<User> getLimitedUserList(List<User> users, int limit){
-        throw new NotImplementedException();
+        return users
+                .stream()
+                .limit(limit)
+                .collect(Collectors.toList());
     }
 
     public static Integer countUsersOlderThen25(List<User> users){
-        throw new NotImplementedException();
+        return Long.valueOf(
+                users
+                .stream()
+                .filter(user -> user.getAge() > 25)
+                .count()
+        ).intValue();
     }
 
     public static List<String> mapToUpperCase(List<String> strings){
@@ -48,7 +60,16 @@ public class Stream8 {
     }
 
     public static Integer sum(List<Integer> integers){
-        throw new NotImplementedException();
+        /*
+        return integers
+                .stream()
+                .reduce(0, Integer::sum);
+                */
+        // Better, faster way:
+        return integers
+                .stream()
+                .mapToInt(i -> i)
+                .sum();
     }
 
     public static List<Integer> skip(List<Integer> integers, Integer toSkip){
